@@ -1,0 +1,34 @@
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+    it gives the exact place where i added / removed/ updated a line
+    we should write diff -u <old> <new>
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+    don't repeat tests or errors
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+    is noce to have automatic commits when i pause editing
+    the perfect manual commit should be for every logical change (in coding)
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+    git log --stat          	#give the status of all files
+    git diff <old> <new>						# take care in git the newer 
+    											commit is above the older one
+    git config --global color.ui auto 			# to see colors
+    git checkout <commit id>					# to checkout a version
+    git init                                    # starts an new repository
+    git status                                  # tells who is the head
+
+    NB. Git doesn't initially create a commit .. need to do it myself
+    
+
+
+   
