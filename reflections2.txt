@@ -10,18 +10,47 @@ What value do you think it offers?
 	commit.
 	git add <file name>
 
-How can you use the staging area to make sure you have one commit per logical
-change?
+	git diff 				# compares the working directory and the staging area
+	git diff -- staged		# compares the staged to the repository
+	git reset --hard        # discards changes in working directory and staging area
+	git checkout master     # to chekout the newest version after checking out an old one
+							# or simply to checkout a branch
 
-What are some situations when branches would be helpful in keeping your history
-organized? How would branches help?
+Branches : used for a new idea .. not knowing if it works, for making a different 
+version (language), or collaborating together
+	git branch 				# shows the available branches and a star next to the used one
+	git branch <name>       # creates a new branch with a new name
+	git log --graph --oneline <b1> <b2>  # to compare two branches structures visually
 
-How do the diagrams help you visualize the branch structure?
+Take care branches define reachability, some branches could be un-reachable like the 
+case when we checked out a commit
+	git checkout -b <new branch name>  # to create the branch and checkout
 
-What is the result of merging two branches together? Why do we represent it in
-the diagram the way we do?
+Merging strategy: add what is common in both branches, add what is newly added and 
+delete what is deleted by either
+	git gc 		# to induce the garbage collection that deletes unreachable commits
+				 which is done automatically from time to time (unreachable branches
+				 may happen when deleting a branch)
+    merge <b1> <b2> 	# to merge two branches (take care it merges to the checked 
+    						out branch also ... can be written "git merge <b2>" only and 
+    						then  it will merge to b1)
+    git -d <branch name>	# to delete a branch
+    git show <commit id>    # introduced changes by this commit 
+    git merge --abort		# to abort a merge
 
-What are the pros and cons of Gitâ€™s automatic merging vs. always doing merges
-manually?
+git fires a conflict when different changes happen in the same area
+whwn you open the conflicted file you will find
+file{
+	
+	<<<<<<< HEAD
+		changes by easy-mode
+	|||||||
+		what was there originally
+	=======
+		changes by master
+	>>>>>>>master
+}    
 
-hello my friend
+	git log -n 1		# show only the last commit
+
+
